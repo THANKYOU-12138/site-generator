@@ -50,5 +50,15 @@ rules (front matter, Markdown subset, template dialect, slug rule, report) tuned
 
 ## Bundle dry-run
 
-See the bottom of this file after the parent agent's submission prep: `bundle --dry-run` is run
-from the kit directory against this repository; its verdict is recorded in the submission notes.
+Run from the kit directory (`bundle --repo ~/.makefun/work/sitegen-bot --dry-run`): **the build
+session is discoverable** — 1 Muse app session (this subagent's, a375d186-…), 39 turns, 134
+lines kept, plus AGENTS.md and the system prompt collected, redactions applied. As with mend,
+a real bundle is not yet writable from inside this run; the dry-run names the same gaps, all
+for the parent agent at bundle time:
+
+1. `--mcp` declaration missing (name the servers, or `--mcp none`).
+2. `--provider` and `--effort` undeclared.
+3. 0 Muse usage rows attached — the parent must run the muse.db SELECT for its own agent_id
+   (bff0c90e-…) and this subagent's (a375d186-…) after this run completes, pass `--muse-usage`,
+   and bundle from the top-level session so the person's prompt and the parent session are
+   included (the dry-run also flags the prompt as missing from this subagent-only bundle).
